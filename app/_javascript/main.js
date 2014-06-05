@@ -1,10 +1,10 @@
 'use strict';
 
-require('./fruit');
+require('./fruit'); //Instantiate some fruit in fruitmachine.
 var fruitmachine = require('fruitmachine');
 
 var layout = fruitmachine({
-	module: 'layout',
+	module: 'layout-a',
 	children: [
 		{
 			name: 'apple',

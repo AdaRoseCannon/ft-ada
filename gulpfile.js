@@ -24,6 +24,7 @@ gulp.task('styles', function () {
             style: 'expanded',
             precision: 10
         }))
+        .on('error', gutil.log)
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('.tmp/styles'))
         .pipe($.size());
@@ -151,12 +152,10 @@ gulp.task('watch', ['connect', 'serve'], function () {
     gulp.watch([
         'app/*.html',
         '.tmp/styles/**/*.css',
-        'app/_javascript/**/*.js',
+        'app/scripts/**/*.js',
         'app/templates/**/*.html',
         'app/images/**/*'
     ]).on('change', function (file) {
-        setTimeout(function () {
-            server.changed(file.path);
-        }, 500);
+        server.changed(file.path);
     });
 });
