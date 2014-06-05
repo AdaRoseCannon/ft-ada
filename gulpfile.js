@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var compiler = require('gulp-hogan-compile');
+var gutil = require('gulp-util');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
@@ -32,15 +33,20 @@ gulp.task('scripts', ['templates'], function () {
     return gulp.src('app/_javascript/**/*.js')
         .pipe($.jshint())
         .pipe($.jshint.reporter(require('jshint-stylish')))
-        .pipe($.size())
+        .pipe($.size());
+});
+
+gulp.task('browserify', ['scripts'], function () {
+    return gulp.src('app/_javascript/main.js')
         .pipe(browserify({
           insertGlobals : true,
           debug : !gulp.env.production
         }))
+        .on('error', gutil.log)
         .pipe(gulp.dest('app/scripts'));
 });
 
-gulp.task('html', ['styles', 'scripts'], function () {
+gulp.task('html', ['styles', 'browserify'], function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
 
@@ -135,8 +141,9 @@ gulp.task('watch', ['connect', 'serve'], function () {
     var server = $.livereload();
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/_javascript/**/*.js', ['scripts']);
+    gulp.watch('app/_javascript/**/*.js', ['browserify']);
     gulp.watch('app/images/**/*', ['images']);
+    gulp.watch('app/templates/**/*.html', ['templates']);
     gulp.watch('bower.json', ['wiredep']);
 
     // watch for changes
@@ -145,6 +152,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
         'app/*.html',
         '.tmp/styles/**/*.css',
         'app/_javascript/**/*.js',
+        'app/templates/**/*.html',
         'app/images/**/*'
     ]).on('change', function (file) {
         setTimeout(function () {
