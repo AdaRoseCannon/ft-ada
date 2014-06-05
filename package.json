@@ -1,9 +1,13 @@
 {
   "name": "ft-ada",
+  "description": "fruitmachine project",
+  "repository": "https://github.com/AdaRoseEdwards/ft-ada.git",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "fruitmachine": "~0.8.2"
+  },
   "devDependencies": {
-    "connect": "^2.14.4",
+    "connect": "~2.19.3",
     "connect-livereload": "^0.4.0",
     "gulp": "^3.6.0",
     "gulp-autoprefixer": "^0.0.7",
@@ -23,7 +27,8 @@
     "gulp-useref": "^0.4.2",
     "jshint-stylish": "^0.2.0",
     "opn": "^0.1.1",
-    "wiredep": "^1.4.3"
+    "wiredep": "^1.4.3",
+    "gulp-browserify": "~0.5.0"
   },
   "engines": {
     "node": ">=0.10.0"
