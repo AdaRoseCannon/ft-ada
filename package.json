@@ -2,7 +2,7 @@
   "name": "ft-ada",
   "description": "fruitmachine project",
   "repository": "https://github.com/AdaRoseEdwards/ft-ada.git",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "fruitmachine": "~0.8.2"
   },
