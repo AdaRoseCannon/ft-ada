@@ -5,9 +5,15 @@ var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var compiler = require('gulp-hogan-compile');
 var gutil = require('gulp-util');
+var deploy = require('gulp-gh-pages');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
+
+gulp.task('deploy', ['build'],function () {
+    gulp.src('./dist/**/*')
+        .pipe(deploy({}));
+});
 
 gulp.task('templates', function() {
     gulp.src('app/templates/**/*.html')
@@ -104,7 +110,7 @@ gulp.task('connect', function () {
     var app = connect()
         .use(require('connect-livereload')({
             port: 35729,
-            src: "http://localhost:35729/livereload.js?snipver=1"
+            src: 'http://localhost:35729/livereload.js?snipver=1'
         }))
         .use(connect.static('app'))
         .use(connect.static('.tmp'))
