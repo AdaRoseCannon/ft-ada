@@ -85,7 +85,10 @@ gulp.task('default', ['clean'], function () {
 gulp.task('connect', function () {
     var connect = require('connect');
     var app = connect()
-        .use(require('connect-livereload')({ port: 35729 }))
+        .use(require('connect-livereload')({
+            port: 35729,
+            src: "http://localhost:35729/livereload.js?snipver=1"
+        }))
         .use(connect.static('app'))
         .use(connect.static('.tmp'))
         .use(connect.directory('app'));
@@ -121,6 +124,11 @@ gulp.task('wiredep', function () {
 gulp.task('watch', ['connect', 'serve'], function () {
     var server = $.livereload();
 
+    gulp.watch('app/styles/**/*.scss', ['styles']);
+    gulp.watch('app/_javascript/**/*.js', ['scripts']);
+    gulp.watch('app/images/**/*', ['images']);
+    gulp.watch('bower.json', ['wiredep']);
+
     // watch for changes
 
     gulp.watch([
@@ -129,11 +137,8 @@ gulp.task('watch', ['connect', 'serve'], function () {
         'app/_javascript/**/*.js',
         'app/images/**/*'
     ]).on('change', function (file) {
-        server.changed(file.path);
+        setTimeout(function () {
+            server.changed(file.path);
+        }, 500);
     });
-
-    gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/_javascript/**/*.js', ['scripts']);
-    gulp.watch('app/images/**/*', ['images']);
-    gulp.watch('bower.json', ['wiredep']);
 });
