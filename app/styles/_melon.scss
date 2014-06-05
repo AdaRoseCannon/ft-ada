@@ -1,0 +1,10 @@
+.melon {
+	display: flex;
+	& > div {
+		flex-grow: 1;
+		display: block;
+		border: 1px dashed grey;
+		padding: 1em;
+		margin: 1em;
+	}
+}
