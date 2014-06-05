@@ -3,9 +3,19 @@
 
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
+var compiler = require('gulp-hogan-compile');
 
 // load plugins
 var $ = require('gulp-load-plugins')();
+
+gulp.task('templates', function() {
+    gulp.src('app/templates/**/*.html')
+        .pipe(compiler('templates.js', {
+            wrapper: 'commonjs',
+            hoganModule: 'hogan-updated'
+        }))
+        .pipe(gulp.dest('app/_javascript'));
+});
 
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
@@ -18,7 +28,7 @@ gulp.task('styles', function () {
         .pipe($.size());
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', ['templates'], function () {
     return gulp.src('app/_javascript/**/*.js')
         .pipe($.jshint())
         .pipe($.jshint.reporter(require('jshint-stylish')))
