@@ -1,9 +1,0 @@
-{
-  "name": "ft-ada",
-  "private": true,
-  "dependencies": {
-    "jquery": "~1.11.0",
-    "platform": "Polymer/platform#~0.3.1"
-  },
-  "devDependencies": {}
-}
