@@ -5,14 +5,40 @@ var fruitmachine = require('fruitmachine');
 
 var layout = fruitmachine({
 	module: 'layout-a',
+	data: {
+		title: 'Hi'
+	},
 	children: [
 		{
-			name: 'apple',
-			module: 'apple',
+			name: 'gallery',
+			module: 'melon',
 			slot: '1',
-			data: {
-				text: 'Hello World'
-			}
+			children: [
+				{
+					name: 'Page1',
+					module: 'banana',
+					slot: 'left-pane',
+					data: {
+						data: 'Left Pane'
+					}
+				},
+				{
+					name: 'Page2',
+					module: 'apple',
+					slot: 'middle-pane',
+					data: {
+						text: 'Center Pane'
+					}
+				},
+				{
+					name: 'Page3',
+					module: 'apple',
+					slot: 'right-pane',
+					data: {
+						text: 'Right Pane'
+					}
+				}
+			]
 		}
 	]
 });

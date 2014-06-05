@@ -2,3 +2,5 @@
 
 require('./apple');
 require('./layout-a');
+require('./melon');
+require('./banana');
