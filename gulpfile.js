@@ -16,16 +16,16 @@ gulp.task('deploy', ['build'],function () {
 });
 
 gulp.task('templates', function() {
-    gulp.src('app/templates/**/*.html')
+    gulp.src('app/fruit/**/*.html')
         .pipe(compiler('templates.js', {
             wrapper: 'commonjs',
             hoganModule: 'hogan-updated'
         }))
-        .pipe(gulp.dest('app/_javascript'));
+        .pipe(gulp.dest('app/fruit'));
 });
 
 gulp.task('styles', function () {
-    return gulp.src('app/styles/main.scss')
+    return gulp.src('app/main.scss')
         .pipe($.rubySass({
             style: 'expanded',
             precision: 10
@@ -147,10 +147,11 @@ gulp.task('wiredep', function () {
 gulp.task('watch', ['connect', 'serve'], function () {
     var server = $.livereload();
 
-    gulp.watch('app/styles/**/*.scss', ['styles']);
+    gulp.watch('app/**/*.scss', ['styles']);
     gulp.watch('app/_javascript/**/*.js', ['browserify']);
+    gulp.watch('app/fruit/**/*.js', ['browserify']);
     gulp.watch('app/images/**/*', ['images']);
-    gulp.watch('app/templates/**/*.html', ['templates']);
+    gulp.watch('app/fruit/**/*.html', ['templates']);
     gulp.watch('bower.json', ['wiredep']);
 
     // watch for changes
@@ -159,7 +160,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
         'app/*.html',
         '.tmp/styles/**/*.css',
         'app/scripts/**/*.js',
-        'app/templates/**/*.html',
+        'app/fruit/**/*.html',
         'app/images/**/*'
     ]).on('change', function (file) {
         server.changed(file.path);
