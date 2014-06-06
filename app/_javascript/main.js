@@ -24,10 +24,10 @@ var layout = fruitmachine({
 				},
 				{
 					name: 'Page2',
-					module: 'apple',
+					module: 'grape',
 					slot: 'middle-pane',
 					data: {
-						text: 'Center Pane'
+						label: 'I\'m a button!!'
 					}
 				},
 				{

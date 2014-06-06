@@ -14,7 +14,7 @@ module.exports.css = function(fruitpath){
 	};
 
 	var flush = function(cb){	// flush occurs at the end of the concating from write()
-		gutil.log(gutil.colors.cyan(paths));	// log it
+		// gutil.log(gutil.colors.cyan(paths));	// log it
 
 		var newFile = new gutil.File({	// create a new file
 			base: __dirname,
@@ -42,7 +42,7 @@ module.exports.js = function(fruitpath){
   };
 
   var flush = function(cb){ // flush occurs at the end of the concating from write()
-    gutil.log(gutil.colors.cyan(paths));  // log it
+    // gutil.log(gutil.colors.cyan(paths));  // log it
 
     var newFile = new gutil.File({  // create a new file
       base: __dirname,
