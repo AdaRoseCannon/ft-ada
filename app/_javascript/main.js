@@ -43,6 +43,6 @@ var layout = fruitmachine({
 	]
 });
 
-layout.render();
-
-layout.inject(document.body);
+layout.render()
+	.inject(document.body)
+	.setup();
