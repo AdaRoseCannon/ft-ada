@@ -6,6 +6,8 @@ var browserify = require('gulp-browserify');
 var compiler = require('gulp-hogan-compile');
 var gutil = require('gulp-util');
 var deploy = require('gulp-gh-pages');
+var fruitCssFinder = require('./gulp-import-gen').css;
+var fruitJSFinder = require('./gulp-import-gen').js;
 
 // load plugins
 var $ = require('gulp-load-plugins')();
@@ -24,7 +26,21 @@ gulp.task('templates', function() {
         .pipe(gulp.dest('app/fruit'));
 });
 
-gulp.task('styles', function () {
+gulp.task('compile-fruit-style', function () {
+
+    return gulp.src('app/fruit/*/_style.scss')
+        .pipe(fruitCssFinder('app/fruit'))
+        .pipe(gulp.dest('app/fruit'));
+});
+
+gulp.task('compile-fruit-javascript', function () {
+
+    return gulp.src('app/fruit/*/index.js')
+        .pipe(fruitJSFinder('app/fruit'))
+        .pipe(gulp.dest('app/fruit'));
+});
+
+gulp.task('styles', ['compile-fruit-style'] , function () {
     return gulp.src('app/main.scss')
         .pipe($.rubySass({
             style: 'expanded',
@@ -36,7 +52,7 @@ gulp.task('styles', function () {
         .pipe($.size());
 });
 
-gulp.task('scripts', ['templates'], function () {
+gulp.task('scripts', ['templates', 'compile-fruit-javascript'], function () {
     return gulp.src('app/_javascript/**/*.js')
         .pipe($.jshint())
         .pipe($.jshint.reporter(require('jshint-stylish')))

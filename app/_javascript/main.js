@@ -1,6 +1,6 @@
 'use strict';
 
-require('./fruit'); //Instantiate some fruit in fruitmachine.
+require('../fruit'); //Instantiate some fruit in fruitmachine.
 var fruitmachine = require('fruitmachine');
 
 var layout = fruitmachine({
