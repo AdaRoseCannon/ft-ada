@@ -13,7 +13,6 @@ fruitmachine.define({
 		// Bind the function to the fruit.
 		this.onButtonClick = this.onButtonClick.bind(this);
 		this.delegate.on('click', '.grape-button', this.onButtonClick);
-		console.log(this);
 	},
 	onButtonClick: function(event, el) {
 		this.fire('buttonclick', el);

@@ -8,7 +8,9 @@ fruitmachine.define({
 	template: templates['layout-a'],
 	initialize: function () {
 		this.on('buttonclick', function (event, el) {
-			console.log(arguments);
+
+			// Do something?
+
 		})
 	}
 });

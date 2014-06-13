@@ -160,14 +160,15 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('watch', ['connect', 'serve'], function () {
+gulp.task('watch', ['build', 'connect', 'serve'], function () {
     var server = $.livereload();
 
-    gulp.watch('app/**/*.scss', ['styles']);
-    gulp.watch('app/_javascript/**/*.js', ['browserify']);
-    gulp.watch('app/fruit/**/*.js', ['browserify']);
+    gulp.watch('app/**/*.scss', ['styles'])
+    gulp.watch('app/_javascript/**/*.{js,json}', ['browserify']);
+    gulp.watch('app/fruit/**/*.{js,json}', ['browserify']);
+    gulp.watch('app/fruit/*/*.html', ['templates']);
+    gulp.watch('app/fruit/templates.js', ['browserify']);
     gulp.watch('app/images/**/*', ['images']);
-    gulp.watch('app/fruit/**/*.html', ['templates']);
     gulp.watch('bower.json', ['wiredep']);
 
     // watch for changes
@@ -176,7 +177,6 @@ gulp.task('watch', ['connect', 'serve'], function () {
         'app/*.html',
         '.tmp/styles/**/*.css',
         'app/scripts/**/*.js',
-        'app/fruit/**/*.html',
         'app/images/**/*'
     ]).on('change', function (file) {
         server.changed(file.path);
