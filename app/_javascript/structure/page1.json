@@ -1,0 +1,75 @@
+{
+	"module": 'layout-a',
+	"data": {
+		"title": 'Hi'
+	},
+	"children": [
+		{
+			"name": 'gallery',
+			"module": 'melon',
+			"slot": '1',
+			"children": [
+				{
+					"name": 'Page1',
+					"module": 'banana',
+					"slot": 'left-pane',
+					"data": {
+						"data": 'Left Pane'
+					}
+				},
+				{
+					"module": 'repeater',
+					"slot": 'middle-pane',
+					"classes": [
+						"usage_tabs"
+					],
+					"children": [
+						{
+							"module": 'tangerine',
+							"classes": [
+								"visible"
+							],
+							"data": {
+								"label": "Tab1"
+							},
+							"children": [
+								{
+									"name": 'Button1',
+									"module": 'grape',
+									"slot": "content",
+									"data": {
+										"label": 'I\'m also a button!!'
+									}
+								}
+							]
+						},
+						{
+							"module": 'tangerine',
+							"data": {
+								"label": "Tab2"
+							},
+							"children": [
+								{
+									"name": 'Button1',
+									"module": 'grape',
+									"slot": "content",
+									"data": {
+										"label": 'I\'m also a button!!'
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": 'Page3',
+					"module": 'apple',
+					"slot": 'right-pane',
+					"data": {
+						"text": 'Right Pane'
+					}
+				}
+			]
+		}
+	]
+}

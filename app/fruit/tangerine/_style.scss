@@ -1,0 +1,19 @@
+.tangerine {
+	.tangerine-tab_content {
+		display:none;
+	}
+
+	.tangerine-tab_label {
+		background: red;
+		width: 12em;
+	}
+
+	&.visible {
+
+		order: 2;
+
+		.tangerine-tab_content {
+			display: block;
+		}
+	}
+}
