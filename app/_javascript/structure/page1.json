@@ -1,72 +1,52 @@
 {
-	"module": 'layout-a',
+	"module": "layout-a",
 	"data": {
-		"title": 'Hi'
+		"title": "Hi"
 	},
 	"children": [
 		{
-			"name": 'gallery',
-			"module": 'melon',
-			"slot": '1',
+			"name": "gallery",
+			"module": "melon",
+			"slot": "1",
 			"children": [
 				{
-					"name": 'Page1',
-					"module": 'banana',
-					"slot": 'left-pane',
+					"name": "Page1",
+					"module": "banana",
+					"slot": "left-pane",
 					"data": {
-						"data": 'Left Pane'
+						"data": "Left Pane"
 					}
 				},
 				{
-					"module": 'repeater',
-					"slot": 'middle-pane',
-					"classes": [
-						"usage_tabs"
-					],
+					"module": "tangerine",
+					"slot": "middle-pane",
 					"children": [
 						{
-							"module": 'tangerine',
-							"classes": [
-								"visible"
-							],
+							"name": "Button1",
+							"module": "grape",
 							"data": {
-								"label": "Tab1"
-							},
-							"children": [
-								{
-									"name": 'Button1',
-									"module": 'grape',
-									"slot": "content",
-									"data": {
-										"label": 'I\'m also a button!!'
-									}
-								}
-							]
+								"tangerine-tab_label": "Tab One",
+								"tangerine-tab_id": "t1",
+								"label": "I\"m the button on the first tab"
+							}
 						},
 						{
-							"module": 'tangerine',
+							"name": "Button2",
+							"module": "grape",
 							"data": {
-								"label": "Tab2"
-							},
-							"children": [
-								{
-									"name": 'Button1',
-									"module": 'grape',
-									"slot": "content",
-									"data": {
-										"label": 'I\'m also a button!!'
-									}
-								}
-							]
+								"tangerine-tab_label": "Tab Two",
+								"tangerine-tab_id": "t2",
+								"label": "I\"m also a button 2!!"
+							}
 						}
 					]
 				},
 				{
-					"name": 'Page3',
-					"module": 'apple',
-					"slot": 'right-pane',
+					"name": "Page3",
+					"module": "apple",
+					"slot": "right-pane",
 					"data": {
-						"text": 'Right Pane'
+						"text": "Right Pane"
 					}
 				}
 			]

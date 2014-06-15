@@ -7,3 +7,5 @@ var layout = fruitmachine(require('./structure'))
 	.render()
 	.inject(document.body)
 	.setup();
+
+console.log(layout);

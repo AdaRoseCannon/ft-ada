@@ -1,6 +1,10 @@
-<div class="tangerine-tab_label">
-	{{{ label }}}
+<div class="tangerine-tab_holder">
+{{# children }}
+	<div data-tangerine_id="{{ tangerine-tab_id }}" class="tangerine-tab">{{ tangerine-tab_label }}<br /></div>
+{{/ children }}
 </div>
-<div class="tangerine-tab_content">
-	{{{ content }}}
-</div>
+{{# children }}
+	<div data-tangerine_id="{{ tangerine-tab_id }}" class="tangerine-content visible">
+		{{{ child }}}
+	</div>
+{{/ children }}
