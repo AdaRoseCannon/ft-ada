@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * Article list item.
+ */
+
 var fruitmachine = require('fruitmachine');
 var templates = require('../templates');
 

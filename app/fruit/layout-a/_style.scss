@@ -1,9 +1,31 @@
 .layout-a {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
 
-    h1 {
-    	padding: 0 1em;
-    }
+	background: #FFF0F5;
+	height: 100vh;
+
+	.header {
+		background: url("/img/pattern.svg");
+		background-size: cover;
+		padding: 1em;
+	}
+
+	@media screen and (orientation: landscape) {
+		.row.header {
+			width: 100vh;
+			height: 100vh;
+			float: right;
+		}
+
+		.slot-head-content {
+			margin-left: calc(100vh - 100vw);
+		}
+	}
+
+
+	@media screen and (orientation: portrait) {
+		.row.header {
+			width: 100vw;
+			height: 100vw;
+		}
+	}
 }

@@ -2,10 +2,14 @@
 
 require('../fruit'); //Instantiate some fruit in fruitmachine.
 var fruitmachine = require('fruitmachine');
+require('./structure').then(function (layout, err) {
+	if (err) {
+		console.log('error', err);
+		return;
+	}
 
-var layout = fruitmachine(require('./structure'))
-	.render()
-	.inject(document.body)
-	.setup();
-
-console.log(layout);
+	fruitmachine(layout)
+		.render()
+		.inject(document.body)
+		.setup();
+});
