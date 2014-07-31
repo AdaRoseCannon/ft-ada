@@ -16,9 +16,9 @@ var PORT =  8443;
 })();
 
 var options = {
-	key: fs.readFileSync(path.join(__dirname, '../keys/server.key')),
-	cert: fs.readFileSync(path.join(__dirname, '../keys/server.crt')),
-	ca: fs.readFileSync(path.join(__dirname, '../keys/server.csr')),
+	key: fs.readFileSync('/home/ada/keys/ssl.key'),
+	cert: fs.readFileSync('/home/ada/keys/ssl.crt'),
+	ca: fs.readFileSync('/home/ada/keys/ca.pem'),
 
 	// SPDY-specific options
 	windowSize: 1024, // Server's window size
