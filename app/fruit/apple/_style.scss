@@ -6,12 +6,13 @@
 		margin: 0;
 
 		article {
-			margin: 0.2em 0.2em 0.2em -1em;
+			margin: 0.2em 0.2em 0.2em 1.5em;
 			display: block;
 			box-shadow: 1em 1em 0 rgba(darken($background, 50%), 0.2);
 			background: lighten($background, 50%);
 			max-width: 90vw;
 			padding-left: 1em;
+			border-left: 3px solid darken($background, 18%);
 
 			h1 {
 				margin: 0;
