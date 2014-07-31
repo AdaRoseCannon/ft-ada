@@ -3,7 +3,6 @@
 var spdy = require('spdy');
 var express = require('express');
 var fs = require('fs');
-var cwd = process.cwd();
 var path = require('path');
 var PORT =  8443;
 
@@ -17,9 +16,9 @@ var PORT =  8443;
 })();
 
 var options = {
-	key: fs.readFileSync(path.join(cwd, '/keys/server.key')),
-	cert: fs.readFileSync(path.join(cwd, '/keys/server.crt')),
-	ca: fs.readFileSync(path.join(cwd, '/keys/server.csr')),
+	key: fs.readFileSync(path.join(__dirname, '../keys/server.key')),
+	cert: fs.readFileSync(path.join(__dirname, '../keys/server.crt')),
+	ca: fs.readFileSync(path.join(__dirname, '../keys/server.csr')),
 
 	// SPDY-specific options
 	windowSize: 1024, // Server's window size
@@ -27,7 +26,7 @@ var options = {
 
 var app = express();
 
-app.use(express.static(path.join(cwd, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 var server = spdy.createServer(options, app);
 
