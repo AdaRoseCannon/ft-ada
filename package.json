@@ -10,12 +10,12 @@
   "main": "server/index.js",
   "dependencies": {
     "es6-promise": "^1.0.0",
+    "express": "~4.7.2",
     "fruitmachine": "~0.8.2",
     "fruitmachine-ftdomdelegate": "^1.0.0",
     "hogan-updated": "~3.1.0",
-    "superagent": "^0.18.0",
-    "spdy": "~1.28.0",
-    "express": "~4.7.2"
+    "spdy": "^1.28.0",
+    "superagent": "^0.18.0"
   },
   "devDependencies": {
     "connect": "~2.19.3",
