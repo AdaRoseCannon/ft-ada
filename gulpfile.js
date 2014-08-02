@@ -88,6 +88,7 @@ gulp.task('html', ['styles', 'browserify'], function () {
 });
 
 gulp.task('images', function () {
+
     return gulp.src('app/images/**/*')
         .pipe($.cache($.imagemin({
             optimizationLevel: 3,
