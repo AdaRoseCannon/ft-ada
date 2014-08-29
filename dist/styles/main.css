@@ -121,6 +121,27 @@ textarea {
   border-radius: 0.2em;
 }
 
+.melon {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.melon > div {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  display: block;
+  border: 1px dashed grey;
+  padding: 1em;
+  margin: 1em;
+}
+@media (min-width: 768px) {
+  .melon {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
 .layout-a {
   background: #FFF0F5;
   height: 100vh;
@@ -140,34 +161,13 @@ textarea {
     float: right;
   }
   .layout-a .slot-head-content {
-    margin-left: calc(100vh - 100vw);
+    margin-left: calc(100vh - 100vw + 3em);
   }
 }
 @media screen and (orientation: portrait) {
   .layout-a .header {
     width: 100vw;
     height: 100vw;
-  }
-}
-
-.melon {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-.melon > div {
-  -webkit-flex-grow: 1;
-  flex-grow: 1;
-  display: block;
-  border: 1px dashed grey;
-  padding: 1em;
-  margin: 1em;
-}
-@media (min-width: 768px) {
-  .melon {
-    -webkit-flex-direction: row;
-    flex-direction: row;
   }
 }
 
@@ -216,6 +216,7 @@ html, body {
   font-weight: 400;
   color: #333333;
   overflow-x: hidden;
+  overflow-y: visible;
 }
 
 h1, h2, h3, h4, h5, h6 {
