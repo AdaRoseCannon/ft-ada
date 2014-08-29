@@ -134,7 +134,7 @@ textarea {
   padding: 1em;
 }
 @media screen and (orientation: landscape) {
-  .layout-a .row.header {
+  .layout-a .header {
     width: 100vh;
     height: 100vh;
     float: right;
@@ -144,7 +144,7 @@ textarea {
   }
 }
 @media screen and (orientation: portrait) {
-  .layout-a .row.header {
+  .layout-a .header {
     width: 100vw;
     height: 100vw;
   }
