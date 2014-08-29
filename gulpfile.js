@@ -49,6 +49,7 @@ gulp.task('styles', ['compile-fruit-style'] , function () {
         .on('error', gutil.log)
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('.tmp/styles'))
+        .pipe(gulp.dest('dist/styles'))
         .pipe($.size());
 });
 
@@ -66,7 +67,8 @@ gulp.task('browserify', ['scripts'], function () {
           debug : !gulp.env.production
         }))
         .on('error', gutil.log)
-        .pipe(gulp.dest('app/scripts'));
+        .pipe(gulp.dest('app/scripts'))
+        .pipe(gulp.dest('dist/scripts'));
 });
 
 gulp.task('html', ['styles', 'browserify'], function () {
@@ -99,8 +101,7 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-    return $.bowerFiles()
-        .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+    return gulp.src('app/fonts/*.{eot,svg,ttf,woff}')
         .pipe($.flatten())
         .pipe(gulp.dest('dist/fonts'))
         .pipe($.size());
@@ -112,7 +113,7 @@ gulp.task('extras', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
+    return gulp.src(['.tmp'], { read: false }).pipe($.clean());
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'extras']);
