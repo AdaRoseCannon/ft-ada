@@ -334,6 +334,11 @@
           }
         }
       }
+    },
+    "moment": {
+      "version": "2.8.2",
+      "from": "moment@",
+      "resolved": "https://registry.npmjs.org/moment/-/moment-2.8.2.tgz"
     }
   }
 }
