@@ -48,7 +48,6 @@ gulp.task('styles', ['compile-fruit-style'] , function () {
         }))
         .on('error', gutil.log)
         .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('.tmp/styles'))
         .pipe(gulp.dest('dist/styles'))
         .pipe($.size());
 });
@@ -91,11 +90,11 @@ gulp.task('html', ['styles', 'browserify'], function () {
 gulp.task('images', function () {
 
     return gulp.src('app/images/**/*')
-        .pipe($.cache($.imagemin({
+        .pipe($.imagemin({
             optimizationLevel: 3,
             progressive: true,
             interlaced: true
-        })))
+        }))
         .pipe(gulp.dest('dist/images'))
         .pipe($.size());
 });
@@ -112,13 +111,9 @@ gulp.task('extras', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', function () {
-    return gulp.src(['.tmp'], { read: false }).pipe($.clean());
-});
-
 gulp.task('build', ['html', 'images', 'fonts', 'extras']);
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', function () {
     gulp.start('build');
 });
 
@@ -130,7 +125,7 @@ gulp.task('connect', function () {
             src: 'http://localhost:35729/livereload.js?snipver=1'
         }))
         .use(connect.static('app'))
-        .use(connect.static('.tmp'))
+        .use(connect.static('dist'))
         .use(connect.directory('app'));
 
     require('http').createServer(app)
@@ -176,7 +171,7 @@ gulp.task('watch', ['build'], function () {
 
     gulp.watch([
         'app/*.html',
-        '.tmp/styles/**/*.css',
+        'dist/styles/**/*.css',
         'app/scripts/**/*.js',
         'app/images/**/*'
     ]).on('change', function (file) {
