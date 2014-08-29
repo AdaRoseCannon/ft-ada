@@ -1,7 +1,8 @@
 'use strict';
 
+var moment = require('moment');
+
 module.exports = function (data) {
-	console.log(data);
 	var structure = {
 		module: 'layout-a',
 		children: [
@@ -25,6 +26,8 @@ module.exports = function (data) {
 		if (!item.url) {
 			return;
 		}
+		item.excerpt = item.content.split("\n").slice(0,5).join(" ");
+		item.date = moment(item['published_on'].split(' ')[0].split('-')).fromNow();
 		structure.children[1].children.push({
 			module: 'apple',
 			data: item

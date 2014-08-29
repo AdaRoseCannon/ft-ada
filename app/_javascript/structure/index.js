@@ -3,8 +3,6 @@
 var request = require('superagent');
 var Promise = require('es6-promise').Promise;
 
-console.log('Hello World 2');
-
 var dataPromise = new Promise(function(resolve, reject) {
 	request
 		.get('/posts.json')

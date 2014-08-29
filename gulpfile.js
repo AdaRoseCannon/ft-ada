@@ -74,7 +74,6 @@ gulp.task('html', ['styles', 'browserify'], function () {
     var cssFilter = $.filter('**/*.css');
 
     return gulp.src('app/*.html')
-        .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
         .pipe(jsFilter)
         .pipe($.uglify())
         .pipe(jsFilter.restore())
@@ -140,7 +139,7 @@ gulp.task('connect', function () {
         });
 });
 
-gulp.task('serve', ['connect', 'styles'], function () {
+gulp.task('serve', ['connect', 'watch'], function () {
     require('opn')('http://localhost:9000');
 });
 
@@ -161,7 +160,7 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('watch', ['build', 'connect', 'serve'], function () {
+gulp.task('watch', ['build'], function () {
     var server = $.livereload();
 
     gulp.watch('app/**/*.scss', ['styles'])
