@@ -152,6 +152,34 @@ textarea {
   }
 }
 
+.layout-b {
+  background: #FFF0F5;
+  height: 100vh;
+}
+.layout-b > .container {
+  width: 100%;
+}
+.layout-b .header {
+  background: url("/images/pattern.svg");
+  background-size: cover;
+}
+@media screen and (orientation: landscape) {
+  .layout-b .header {
+    width: 100vh;
+    height: 100vh;
+    float: right;
+  }
+  .layout-b .slot-head-content {
+    margin-left: calc(100vh - 100vw + 3em);
+  }
+}
+@media screen and (orientation: portrait) {
+  .layout-b .header {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
 .melon {
   display: -webkit-flex;
   display: flex;

@@ -20,7 +20,16 @@
         <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="styles/main.css">
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/platform/platform.js"></script>
+        <!-- endbower -->
         <!-- endbuild -->
+
+        <!--serve livereload-->
+        <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+        <!--endserve-->
 
     </head>
     <body>
@@ -41,11 +50,6 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/platform/platform.js"></script>
-        <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->

@@ -1,5 +1,5 @@
-<a class="apple-article_link" href="{{ url }}"><article>
+{{# url }}<a class="apple-article_link" href="{{ url }}" data-index="{{ index }}">{{/ url }}<article>
 	<h1>{{ title }}</h1>
 	<div>{{{ excerpt }}}</div>
 	<p><time>{{ date }}</time></p>
-</article></a>
+</article>{{# url }}</a>{{/ url }}

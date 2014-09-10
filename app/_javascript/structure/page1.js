@@ -22,12 +22,13 @@ module.exports = function (data) {
 		]
 	};
 
-	data.posts.forEach(function (item) {
+	data.posts.forEach(function (item, index) {
 		if (!item.url) {
 			return;
 		}
 		item.excerpt = item.content.split("\n").slice(0,5).join(" ");
 		item.date = moment(item['published_on'].split(' ')[0].split('-')).fromNow();
+		item.index = index;
 		structure.children[1].children.push({
 			module: 'apple',
 			data: item

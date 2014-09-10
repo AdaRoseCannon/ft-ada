@@ -25,12 +25,8 @@ var dataPromise = new Promise(function(resolve, reject) {
  * Supplies a get function.
  * @type Object
  */
-module.exports = new Promise(function (resolve, reject) {
-	dataPromise.then(function (data) {
-		resolve(require('./page1.js')(data));
-	}).catch (function (e) {
-		reject(e);
-	});
-}).catch(function (e) {
-	console.log('error', e);
-});
+module.exports.structure = dataPromise;
+
+module.exports.indexPage = dataPromise.then(require('./page1'));
+
+module.exports.articlePage = dataPromise.then(require('./articlePage'));
