@@ -94,11 +94,11 @@ textarea {
 .apple a article {
   margin: 0.2em 0.2em 0.2em 1.5em;
   display: block;
-  box-shadow: 1em 1em 0 rgba(128, 128, 128, 0.2);
+  box-shadow: 1em 1em 0 rgba(240, 0, 80, 0.2);
   background: white;
   max-width: 90vw;
   padding-left: 1em;
-  border-left: 3px solid #d1d1d1;
+  border-left: 3px solid #ff94b8;
 }
 .apple a article h1 {
   margin: 0;
@@ -154,7 +154,7 @@ textarea {
 
 .layout-b {
   background: #FFF0F5;
-  height: 100vh;
+  overflow: hidden;
 }
 .layout-b > .container {
   width: 100%;
@@ -163,10 +163,17 @@ textarea {
   background: url("/images/pattern.svg");
   background-size: cover;
 }
+.layout-b .body_content {
+  overflow: hidden;
+  float: left;
+  margin: 1em 3em 3em 3em;
+  box-shadow: 1em 1em 0 rgba(240, 0, 80, 0.2);
+  background: white;
+  padding: 1em;
+}
 @media screen and (orientation: landscape) {
   .layout-b .header {
     width: 100vh;
-    height: 100vh;
     float: right;
   }
   .layout-b .slot-head-content {
